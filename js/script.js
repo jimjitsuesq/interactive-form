@@ -2,7 +2,6 @@
 Helper function for real-time validation. Prevents triggering 'not-valid' 
 immediately upon focus on tab 'keyup' 
 */
-
 function realTimeValidate (element, regex, hint, fieldName, hintText) {
     element.addEventListener('keyup', (e) => {
         if (e.keyCode === 9) {
@@ -26,12 +25,10 @@ function realTimeValidate (element, regex, hint, fieldName, hintText) {
     })
 }
 
-
 /* 
 Helper function for real-time validation if a user tabs away from a field 
 without completing it 
 */
-
 function blurValidate (element, hint) {
     element.addEventListener('blur', () => {
         if (element.value.length === 0) {
@@ -45,7 +42,6 @@ function blurValidate (element, hint) {
 /* 
 Validate 'name' field with 'realTimeValidate' and 'blurValidate' functions 
 */
-
 const body = document.querySelector('body');
 const fullName = document.getElementById('name');
 const fullNameHint = document.getElementById('name-hint');
@@ -60,7 +56,6 @@ blurValidate(fullName, fullNameHint);
 /* 
 Validate 'email' field with 'realTimeValidate' and 'blurValidate' functions 
 */
-
 const email = document.getElementById('email');
 const emailHint = document.getElementById('email-hint');
 const emailField = 'Email';
@@ -74,7 +69,6 @@ blurValidate(email, emailHint);
 Hide 'other-job-role' input box by default and show only if user selects
 'other' from drop-down list 
 */
-
 const jobRole = document.getElementById('title');
 const jobRoleOptions = title.children;
 const otherJobRole = document.getElementById('other-job-role');
@@ -91,7 +85,6 @@ function hideOtherJobRole (element1, arr, element2) {
         })
     }
 }
-
 hideOtherJobRole(jobRole, jobRoleOptions, otherJobRole);
 
 /* 
@@ -99,7 +92,6 @@ Hide t-shirt colors until a design is selected and only display available
 colors that exist for the design selected. Reset color choices if user changes
 mind about design.
 */
-
 const shirtDesign = document.getElementById('design');
 const shirtColor = document.getElementById('color');
 const shirtColorOptions = shirtColor.getElementsByTagName('OPTION');
@@ -126,14 +118,12 @@ function displayShirtColors (element1, element2, arr) {
         }
     })
 }
-
 displayShirtColors(shirtDesign, shirtColor, shirtColorOptions);
 
 /* 
 Listen for changes to the 'activities' fieldset, 'disable' activities that
 conflict with the timing of selected activities and track total cost 
 */
-
 const activitiesElement = document.getElementById('activities');
 const activitiesOptions = activities.getElementsByTagName('INPUT');
 const activitiesHint = document.getElementById('activities-hint');
@@ -179,7 +169,6 @@ function checkActivities (arr, element1, element2) {
         }) 
     }
 }
-
 checkActivities(activitiesOptions, activitiesElement, activitiesHint);
 
 /* 
@@ -196,13 +185,11 @@ function cbFocus (arr) {
         })
     }
 }
-
 cbFocus(activitiesOptions);
 
 /* 
 Display alternate payment method if selected 
 */
-
 const payment = document.getElementById('payment');
 const paymentMethods = payment.getElementsByTagName('OPTION');
 const creditCard = document.getElementById('credit-card');
@@ -233,14 +220,12 @@ function displayAlternatePayment (arr) {
         })
     }
 }
-
 displayAlternatePayment(paymentMethods);
 
 /* 
 Validate credit card payment fields with 'realTimeValidate' and 'blurValidate' 
 functions 
 */
-
 const ccNum = document.getElementById('cc-num');
 const ccNumRegex = /^[0-9]{13,16}$/;
 const ccNumHint = document.getElementById('cc-hint');
@@ -267,7 +252,6 @@ blurValidate(cvv, cvvHint);
 /* 
 Submit form and verify all required fields contain valid data 
 */
-
 function submitValidate (element, hint) {
         if (element.parentElement.classList.contains('valid') === false) {
             element.parentElement.classList.add('not-valid');
